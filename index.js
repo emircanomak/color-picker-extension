@@ -135,3 +135,10 @@ const activateEyeDropper = async () => {
         document.body.style.display = 'block';
     }
 };
+
+// Function to clear all picked colors
+const clearAllColors = () => {
+    pickedColors = [];
+    localStorage.removeItem('colors-list');
+    showColorsColors();
+};
