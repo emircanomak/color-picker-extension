@@ -65,4 +65,15 @@ const createColorPopup = (color) => {
      closePopup.addEventListener('click',() => {
         document.body.removeChild(popup);
         currentPopup = null;
-     })
+     });
+
+        // Event listeners to copy color values to clipboard
+        const colorValues = popup.querySelectorAll('value');
+        colorValues.forEach((value) => {
+            value.addEventListener('click',(e) => {
+                const text = e.currentTarget.innerText;
+                copyToClipboard(text,e.currentTarget);
+            });
+
+            return popup;
+        });
