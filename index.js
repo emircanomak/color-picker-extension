@@ -59,3 +59,10 @@ const createColorPopup = (color) => {
             </div>
         </div>
     `;}
+
+     // Close button inside the popup
+     const closePopup = popup.querySelector('.close-popup');
+     closePopup.addEventListener('click',() => {
+        document.body.removeChild(popup);
+        currentPopup = null;
+     })
