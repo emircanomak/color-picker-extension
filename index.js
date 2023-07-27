@@ -107,3 +107,12 @@ const showColors = () => {
     const pickedColorsContainer = document.querySelector(".colors-list");
     pickedColorsContainer.classList.toggle("hide", pickedColors.length === 0);
 };
+
+// Function to convert a hex color code to rgb format
+const hexToRgb = (hex) => {
+    const bigint = parseInt(hex.slice(1), 16);
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+    return `rgb(${r}, ${g}, ${b})`;
+};
