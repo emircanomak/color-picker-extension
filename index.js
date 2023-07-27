@@ -22,4 +22,17 @@ const copyToClipboard = async (text,element) => {
     } catch(error) {
         alert('Filed to copy text!');
     }
-}
+};
+
+// Function to export colors as text file
+const exportColors = () => {
+    const colorText = pickedColors.join('\n');
+    const blob = new Blob([colorText], {type:'text/plain'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Colors.txt';
+    document.body.appendChild(a);
+    a.click();
+    URL.revokeObjectURL(url);
+};
