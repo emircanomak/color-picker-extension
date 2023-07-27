@@ -142,3 +142,11 @@ const clearAllColors = () => {
     localStorage.removeItem('colors-list');
     showColorsColors();
 };
+
+// Event listeners for buttons
+clearBtn.addEventListener('click', clearAllColors);
+pickerBtn.addEventListener('click', activateEyeDropper);
+exportBtn.addEventListener('click',exportColors);
+
+// Displaying picked colors on document load
+showColors();
