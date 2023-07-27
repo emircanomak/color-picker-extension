@@ -36,3 +36,26 @@ const exportColors = () => {
     a.click();
     URL.revokeObjectURL(url);
 };
+
+// Function to create the color popup
+const createColorPopup = (color) => {
+    const popup = document.createElement('div');
+    popup.classList.add('color-popup');
+    popup.innerHTML = `
+        <div class="color-popup-content">
+            <span class="close-popup">x</span>
+            <div class="color-info">
+                <div class="color-preview" style="background: ${color};"></div>
+                <div class="color-details">
+                    <div class="color-value">
+                        <span class="label">Hex:</span>
+                        <span class="value hex" data-color="${color}">${color}</span>
+                    </div>
+                    <div class="color-value">
+                        <span class="label">RGB:</span>
+                        <span class="value rgb" data-color="${color}">${hexToRgb(color)}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;}
