@@ -119,34 +119,35 @@ const hexToRgb = (hex) => {
 
 // Function to activate the eye dropper color picker
 const activateEyeDropper = async () => {
-    document.body.style.display = 'none';
+    document.body.style.display = "none";
     try {
-    // Opening the eye dropper and retrieving the selected color
-    const {sRGBHex} = await new EyeDropper().open();
+        // Opening the eye dropper and retrieving the selected color
+        const { sRGBHex } = await new EyeDropper().open();
 
-    if(!pickedColors.includes(sRGBHex)){
-        pickedColors.push(sRGBHex);
-        localStorage.setItem('colors-list', JSON.stringify(pickedColors));
-    }
-   showColors();
+        if (!pickedColors.includes(sRGBHex)) {
+            pickedColors.push(sRGBHex);
+            localStorage.setItem("colors-list", JSON.stringify(pickedColors));
+        }
+
+        showColors();
     } catch (error) {
-        alert('Field to copy the color code !');
-    }finally {
-        document.body.style.display = 'block';
+        alert("Filed to copy the color code!");
+    } finally {
+        document.body.style.display = "block";
     }
 };
 
 // Function to clear all picked colors
 const clearAllColors = () => {
     pickedColors = [];
-    localStorage.removeItem('colors-list');
-    showColorsColors();
+    localStorage.removeItem("colors-list");
+    showColors();
 };
 
 // Event listeners for buttons
 clearBtn.addEventListener('click', clearAllColors);
 pickerBtn.addEventListener('click', activateEyeDropper);
-exportBtn.addEventListener('click',exportColors);
+exportBtn.addEventListener('click', exportColors);
 
 // Displaying picked colors on document load
 showColors();
